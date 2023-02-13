@@ -1,5 +1,5 @@
 .row {
-  display: flex;
+  
   flex-direction: row;
   width: 640;
 
@@ -12,5 +12,8 @@
 }
 
 .centerboard{
-  
+ width: 640;
+ height: 640;
+ display: flex;
+ justify-content: center;
 }

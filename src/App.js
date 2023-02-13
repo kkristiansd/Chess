@@ -16,7 +16,7 @@ function App() {
   
   ];
   return (
-    <div className='bg-slate-400 h-full '>
+    <div className='bg-slate-400 h-full border-8 '>
       <div className='drop-shadow-2xl centerboard' >
         {board.map((row, index) => {
           return (
