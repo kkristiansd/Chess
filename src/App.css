@@ -1,19 +1,13 @@
 .row {
-  
+  display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 640;
 
 }
 
-.square {
-  width: 80;
-  height: 80;
-  background-color: aqua;
-}
 
-.centerBoard{
- width: 640;
- height: 640;
- display: flex;
- justify-content: center;
+
+.centerboard{
+ 
 }
