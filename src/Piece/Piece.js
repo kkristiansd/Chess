@@ -14,7 +14,9 @@ class Piece extends Component {
     }
     render() {
         return (
-            <></>
+            <>
+            <img src={require('../assets/pawn.png')} alt="Logo" />;
+            </>
         );
     }
 }
