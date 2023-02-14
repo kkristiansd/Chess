@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+
+
 
 function Board() {
 
@@ -23,7 +23,7 @@ function Board() {
         <div className="row">
           {row.map((square, sIndex) => {
             return <div style={{backgroundColor:square,width:80,height:80}}>
-              <img src={require('./assets/pawn.png')} height={50} width={50} style={{  display: 'block',marginLeft: 'auto',marginRight: 'auto',marginTop:7}}/>
+              <img src={require('../assets/pawn.png')} height={50} width={50} style={{  display: 'block',marginLeft: 'auto',marginRight: 'auto',marginTop:7}}/>
             </div>;
           })}
         </div>
