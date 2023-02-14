@@ -13,11 +13,16 @@ class Piece extends Component {
         console.log(this.state);
     }
     render() {
-        return (
-            <>
-            <img src={require('../assets/pawn.png')} alt="pawn" />;
-            </>
-        );
+        if(this.props.piece ==='wp'){
+            return (
+                <>
+                
+                <img src={require('../assets/pawn.png')} alt="white pawn" width={50} height={50} style={{marginLeft:14,marginTop:7}} />;
+                </>
+            );
+        }
+       
+       
     }
 }
 export default Piece;  

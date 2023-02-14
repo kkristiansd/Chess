@@ -16,7 +16,7 @@ class Square extends Component {
     render() {
         return (
          <div style={{backgroundColor:this.props.color,width:80,height:80}}>
-           <Piece piece={this.props.piece}></Piece>
+           <Piece piece={this.props.defaultPiece}></Piece>
          </div>
         );
     }
