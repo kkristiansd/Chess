@@ -16,8 +16,7 @@ class Piece extends Component {
         if(this.props.piece ==='wp'){
             return (
                 <>
-                
-                <img src={require('../assets/pawn.png')} alt="white pawn" width={50} height={50} style={{marginLeft:14,marginTop:7}} />;
+                <img src={require('../assets/whitePawn.png')} alt="white pawn" width={50} height={50} style={{marginLeft:14,marginTop:7}} />;
                 </>
             );
         }
