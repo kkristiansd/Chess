@@ -1,28 +1,21 @@
-import React, { Component } from 'react';  
-  
-class Piece extends Component {  
-  constructor(props){  
-    super(props);  
-    this.state = { 
-        key:'1', 
-         piece: 'p',
-         color:'white',
-         defaultPosition:'b2',
+import React, { Component } from 'react';
 
-      }  
-    this.handleEvent = this.handleEvent.bind(this);  
-  }  
-  handleEvent(){  
-    console.log(this.props.state);  
-  }  
-  render() {  
-    return (  
-      <div className="App">  
-    <h2>React Constructor Example</h2>  
-    <input type ="text" value={this.state.data} />  
-        <button onClick={this.handleEvent}>Please Click</button>  
-      </div>  
-    );  
-  }  
-}  
+class Piece extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            piece: 'p',
+            color: 'white',
+        }
+        this.handleEvent = this.handleEvent.bind(this);
+    }
+    handleEvent() {
+        console.log(this.state);
+    }
+    render() {
+        return (
+            <></>
+        );
+    }
+}
 export default Piece;  
