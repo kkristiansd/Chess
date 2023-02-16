@@ -2,9 +2,12 @@ import Square from "../Square/Square";
 import BoardJson from "../BoardJson.json"
 
 
+
 function Board() {
-  
+ 
   const board = BoardJson;
+
+  
   return (
     <>
     {board.map((row, index) => {
@@ -13,8 +16,9 @@ function Board() {
           {row.map((square, sIndex) => {
             return (
               <>
-              {console.log(board)}
-              <Square color={square.squareColor} position={square.squarePosition} defaultPiece={square.defaultPiece}></Square>
+           
+
+              <Square key={square.squarePosition}   color={square.squareColor} position={square.squarePosition} defaultPiece={square.defaultPiece} piece={square.piece}></Square>
               </>
               
             );

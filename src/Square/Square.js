@@ -1,24 +1,38 @@
-import React, { Component } from 'react';
+import React ,{useState }from 'react';
 import Piece from '../Piece/Piece';
-class Square extends Component {
-    constructor(props,Piece) {
-        super(props);
-        this.state = {
-            position:'a2',
-            color:'white',
-            piece:Piece,
+import ReactDOM from "react-dom";
+
+function Square(props) {
+    
+    const[color,setColor]= useState(null);
+    
+
+    
+
+    const selectInitialSquare = (squareId, color, piece) => {
+       
+        
+        document.getElementById(squareId).style.backgroundColor="red";
+       // console.log("here"+localStorage.getItem("squareId"));
+        if(localStorage.getItem("squareId")!=null&&localStorage.getItem("squareId")!=squareId){
+            const lastSquareId= localStorage.getItem("squareId");
+            const btn = document.getElementById(lastSquareId);
+            console.log(btn.className);
+            btn.style.backgroundColor=btn.className;
         }
-        this.handleEvent = this.handleEvent.bind(this);
-    }
-    handleEvent() {
-        console.log(this.state);
-    }
-    render() {
-        return (
-         <div style={{backgroundColor:this.props.color,width:80,height:80}}>
-           <Piece piece={this.props.defaultPiece}></Piece>
-         </div>
-        );
-    }
+
+
+
+        localStorage.setItem("squareId", squareId);
+
+       
+
+    };
+    return (
+        <div id={props.position} className={props.color}onClick={() => selectInitialSquare(props.position, props.color, props.piece)} style={{ backgroundColor: props.color, width: 80, height: 80 }}>
+            <Piece piece={props.defaultPiece}></Piece>
+        </div>
+    );
+
 }
 export default Square;  
