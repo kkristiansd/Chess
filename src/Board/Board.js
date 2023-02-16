@@ -1,24 +1,26 @@
 import Square from "../Square/Square";
-import BoardJson from "../BoardJson.json"
-
+import {BoardJs} from "../BoardJS";
+import { useState,useLayoutEffect } from "react";
+import React from "react";
 
 
 function Board() {
+  //re-render after each move
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
  
-  const board = BoardJson;
-
-  
+ 
+ 
   return (
     <>
-    {board.map((row, index) => {
+    {BoardJs.map((row, index) => {
+console.log("view")
       return (
-        <div className="row">
+        <div className="row" key={row[0].arraySquare} >
           {row.map((square, sIndex) => {
             return (
               <>
-           
-
-              <Square key={square.squarePosition}   color={square.squareColor} position={square.squarePosition} defaultPiece={square.defaultPiece} piece={square.piece}></Square>
+              <Square key={square.squarePosition}  color={square.squareColor} position={square.squarePosition} piece={square.piece} arraySquare={square.arraySquare} rerender={forceUpdate} ></Square>
               </>
               
             );

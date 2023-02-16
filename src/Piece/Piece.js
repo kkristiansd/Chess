@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Pawn from './Pieces/Pawn';
 class Piece extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +17,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <img src={require('../assets/whitePawn.png')} alt="white pawn" width={50} height={50} style={{marginLeft:14,marginTop:7}} />;
+              <Pawn piece={this.props.piece} />
                 </>
             );
         }
@@ -25,7 +25,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <img src={require('../assets/blackPawn.png')} alt="black pawn" width={50} height={50} style={{marginLeft:14,marginTop:7}} />;
+                <Pawn piece={this.props.piece} />
                 </>
             );
         }
