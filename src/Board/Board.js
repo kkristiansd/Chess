@@ -6,6 +6,7 @@ import React from "react";
 
 function Board() {
   //re-render after each move
+  //CALLED FROM THE CHILD
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
  

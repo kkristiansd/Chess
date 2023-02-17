@@ -1,6 +1,6 @@
-import React ,{useState }from 'react';
+import React from 'react';
 import Piece from '../Piece/Piece';
-import ReactDOM from "react-dom";
+
 import {BoardJs} from "../BoardJS";
 function Square(props) {
   
