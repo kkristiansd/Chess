@@ -4,56 +4,56 @@ export const BoardJs = [
       arraySquare: "00",
       squareColor: "white",
       squarePosition: "a8",
-      piece: "",
+      piece: "br",
 
     },
     {
       arraySquare: "01",
       squareColor: "grey",
       squarePosition: "b8",
-      piece: "",
+      piece: "bn",
 
     },
     {
       arraySquare: "02",
       squareColor: "white",
       squarePosition: "c8",
-      piece: "",
+      piece: "bb",
 
     },
     {
       arraySquare: "03",
       squareColor: "grey",
       squarePosition: "d8",
-      piece: "",
+      piece: "bq",
 
     },
     {
       arraySquare: "04",
       squareColor: "white",
       squarePosition: "e8",
-      piece: "",
+      piece: "bk",
 
     },
     {
       arraySquare: "05",
       squareColor: "grey",
       squarePosition: "f8",
-      piece: "",
+      piece: "bb",
 
     },
     {
       arraySquare: "06",
       squareColor: "white",
       squarePosition: "g8",
-      piece: "",
+      piece: "bn",
 
     },
     {
       arraySquare: "07",
       squareColor: "grey",
       squarePosition: "h8",
-      piece: "",
+      piece: "br",
 
     }
   ],
@@ -403,56 +403,56 @@ export const BoardJs = [
       arraySquare: "70",
       squareColor: "grey",
       squarePosition: "a1",
-      piece: "",
+      piece: "wr",
 
     },
     {
       arraySquare: "71",
       squareColor: "white",
       squarePosition: "b1",
-      piece: "",
+      piece: "wn",
 
     },
     {
       arraySquare: "72",
       squareColor: "grey",
       squarePosition: "c1",
-      piece: "",
+      piece: "wb",
 
     },
     {
       arraySquare: "73",
       squareColor: "white",
       squarePosition: "d1",
-      piece: "",
+      piece: "wq",
 
     },
     {
       arraySquare: "74",
       squareColor: "grey",
       squarePosition: "e1",
-      piece: "",
+      piece: "wk",
 
     },
     {
       arraySquare: "75",
       squareColor: "white",
       squarePosition: "f1",
-      piece: "",
+      piece: "wb",
 
     },
     {
       arraySquare: "76",
       squareColor: "grey",
       squarePosition: "g1",
-      piece: "",
+      piece: "wn",
 
     },
     {
       arraySquare: "77",
       squareColor: "white",
       squarePosition: "h1",
-      piece: "",
+      piece: "wr",
 
     }
   ]

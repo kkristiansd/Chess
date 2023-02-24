@@ -11,7 +11,7 @@ function Board() {
   const forceUpdate = React.useCallback(() => updateState({}), []);
  
  
- 
+  
   return (
     <>
     {BoardJs.map((row, index) => {
@@ -21,7 +21,7 @@ console.log("view")
           {row.map((square, sIndex) => {
             return (
               <>
-              <Square key={square.squarePosition}  color={square.squareColor} position={square.squarePosition} piece={square.piece} arraySquare={square.arraySquare} rerender={forceUpdate} ></Square>
+              <Square key={square.squarePosition}  square={square} color={square.squareColor} position={square.squarePosition} piece={square.piece} arraySquare={square.arraySquare} rerender={forceUpdate} ></Square>
               </>
               
             );

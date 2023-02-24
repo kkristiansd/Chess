@@ -11,7 +11,7 @@ function Square(props) {
         const pos = arraySquare.split('');
     
      
-        if( BoardJs[pos[0]][pos[1]].piece===""&& localStorage.getItem("piece")!=null){
+        if(BoardJs[pos[0]][pos[1]].piece===""&& localStorage.getItem("piece")!=null){
             
             const square = localStorage.getItem("squareId");
             const btn = document.getElementById(square);
@@ -38,7 +38,7 @@ function Square(props) {
 
     return (
         <div id={props.arraySquare} className={props.color} onClick={() => selectInitialSquare(props.arraySquare,  props.piece)} style={{ backgroundColor: props.color, width: 80, height: 80 }}>
-            <Piece piece={props.piece}></Piece>
+            <Piece piece={props.piece} square={props.square} ></Piece>
         </div>
     );
 
