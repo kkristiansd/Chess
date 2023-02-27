@@ -1,4 +1,4 @@
-# Chess
+# Chess (In Progress)
 
 This project was made with react and tailwind
 
