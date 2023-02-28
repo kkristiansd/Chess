@@ -4,11 +4,18 @@ import Piece from '../Piece/Piece';
 import {BoardJs} from "../BoardJS";
 function Square(props) {
   
-    localStorage.setItem("piece",null)
-    localStorage.setItem("squareId", null);
-    const selectInitialSquare = (arraySquare, piece) => {  
   
-        const pos = arraySquare.split('');
+    const selectInitialSquare = (square) => { 
+        //if clicked on a piece 
+        if(square.piece!=''){
+           
+            localStorage.setItem("squareClicked", square.arraySquare);
+            const btn = document.getElementById(square.arraySquare);
+            btn.style.backgroundColor='red';
+        }
+     
+        
+     /*   const pos = square.arraySquare.split('');
     
      
         if(BoardJs[pos[0]][pos[1]].piece===""&& localStorage.getItem("piece")!=null){
@@ -29,15 +36,15 @@ function Square(props) {
         }else{
            
             //change back ground color
-            document.getElementById(arraySquare).style.backgroundColor="red";
+            document.getElementById(square.arraySquare).style.backgroundColor="red";
             //save the square in cache
-            localStorage.setItem("squareId", arraySquare);
-            localStorage.setItem("piece", piece);
-        }
+            localStorage.setItem("squareId", square.arraySquare);
+            localStorage.setItem("piece", square.piece);
+        }*/
     };
 
     return (
-        <div id={props.arraySquare} className={props.color} onClick={() => selectInitialSquare(props.arraySquare,  props.piece)} style={{ backgroundColor: props.color, width: 80, height: 80 }}>
+        <div id={props.arraySquare} className={props.color} onClick={() => selectInitialSquare(props.square)} style={{ backgroundColor: props.color, width: 80, height: 80 }}>
             <Piece piece={props.piece} square={props.square} ></Piece>
         </div>
     );
