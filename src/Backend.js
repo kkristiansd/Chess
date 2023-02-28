@@ -11,10 +11,11 @@ export const setSquaresColors=()=>{
 }
 
 
-//pieces legal moves
-export const knightMoves = (position) => {
+//pieces moves 
+export const knightMoves = (position,pieceColor) => {
     // Define the potential moves for the knight
-    const moves = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]
+    const moves = [
+        [-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]
     ];
 
     const validKnightMoves = [];
@@ -25,7 +26,15 @@ export const knightMoves = (position) => {
         const newY = parseInt(position[1]) + move[1];
 
         if (newX >= 0 && newX <= 7 && newY >= 0 && newY <= 7) {
-            validKnightMoves.push([newX, newY]);
+            //check if there is same color piece on valid move square
+            console.log(BoardJs[newX][newY].piece);
+            if(BoardJs[newX][newY].piece===''){
+                validKnightMoves.push([newX, newY]);
+            }
+          
+            
+           
+           
         }
     }
     

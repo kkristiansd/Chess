@@ -11,6 +11,7 @@ function Square(props) {
     const selectInitialSquare = (square) => {
         //if clicked on a piece 
         if (square.piece !== '') {
+            setSquaresColors();
             //check if there is previous square selected to change background color to original
             if (localStorage.getItem("squareClicked") !== null) {
                 const btn = document.getElementById(localStorage.getItem("squareClicked"));
@@ -29,33 +30,29 @@ function Square(props) {
             //get piece
             const piece = square.piece.split('');
             // example 
-            //'br' -> black rook
+            //'br' -> Black Rook
             // peice[1] -> rook
-            //'wn' -> white night *knight
+            //'wn' -> White Night *knight
 
 
             if (piece[1] === 'n') {
                 const position = square.arraySquare.split('');
                 //this will return an array of possible moves
-                const kMoves=knightMoves(position);
+                const kMoves=knightMoves(position,piece[0]);
            
+                //SHOW POSSIBLE MOVES IN GREEN
                 for (let moves of kMoves) {
                     const x = moves[0].toString();
                     const y = moves[1].toString();
                     const btn = document.getElementById(x+y);
-                    btn.style.backgroundColor = 'green';
-                 
-            
-                   
+                    btn.style.backgroundColor = 'green'; 
                 }
-
-           
-                
 
             }else if(piece[1] === 'p' ){
                     //put your stuff in  here
             }
         }else{
+            //if press on square with no pieces
             setSquaresColors();
         }
 
