@@ -2,7 +2,8 @@ import React from 'react';
 import Piece from '../Piece/Piece';
 import { 
     setSquaresColors,
-    knightMoves  
+    knightMoves,
+    bishopMoves 
     } from "../Backend";
     import {BoardJs} from "../BoardJS";
 function Square(props) {
@@ -19,7 +20,7 @@ function Square(props) {
            
             
           
-            //move the piece
+             //move the piece
             const pos = square.arraySquare.split('');
             BoardJs[pos[0]][pos[1]].piece=localStorage.getItem("piece");
             //console.log("after "+BoardJs[pos[0]][pos[1]])
@@ -48,9 +49,10 @@ function Square(props) {
             // peice[1] -> rook
             //'wn' -> White Night *knight
 
-
+            const position = square.arraySquare.split('');
+            //knight
             if (piece[1] === 'n') {
-                const position = square.arraySquare.split('');
+                
                 //this will return an array of possible moves
                 const kMoves=knightMoves(position,piece[0]);
            
@@ -61,9 +63,19 @@ function Square(props) {
                     const btn = document.getElementById(x+y);
                     btn.style.backgroundColor = goodPossibleColor; 
                 }
-
-            }else if(piece[1] === 'p' ){
-                    //put your stuff in  here
+            //bishop
+            }else if(piece[1] === 'b' ){
+                
+                //this will return an array of possible moves
+                const bMoves=bishopMoves(position,piece[0]);
+           
+                //SHOW POSSIBLE MOVES IN GREEN
+                for (let moves of bMoves) {
+                    const x = moves[0].toString();
+                    const y = moves[1].toString();
+                    const btn = document.getElementById(x+y);
+                    btn.style.backgroundColor = goodPossibleColor; 
+                }
             }
         }else{
             //if press on square with no pieces

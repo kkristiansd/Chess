@@ -69,7 +69,7 @@ export const BoardJs = [
       arraySquare: "11",
       squareColor: "white",
       squarePosition: "b7",
-      piece: "bp",
+      piece: "",
 
     },
     {
@@ -257,7 +257,7 @@ export const BoardJs = [
       arraySquare: "43",
       squareColor: "grey",
       squarePosition: "d4",
-      piece: "",
+      piece: "bb",
 
     },
     {
