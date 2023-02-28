@@ -24,20 +24,16 @@ export const knightMoves = (position,pieceColor) => {
     for (let move of moves) {
         const newX = parseInt(position[0]) + move[0];
         const newY = parseInt(position[1]) + move[1];
-
+        
         if (newX >= 0 && newX <= 7 && newY >= 0 && newY <= 7) {
-            //check if there is same color piece on valid move square
-            console.log(BoardJs[newX][newY].piece);
-            if(BoardJs[newX][newY].piece===''){
+            const color =BoardJs[newX][newY].piece;
+            //check if there is same color piece on valid move square           
+            //cant go on pieces of the same color
+            if(color[0]!==pieceColor){
                 validKnightMoves.push([newX, newY]);
-            }
-          
-            
-           
-           
+            }    
         }
     }
-    
     return validKnightMoves;
 }
 

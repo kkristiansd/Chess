@@ -4,23 +4,37 @@ import {
     setSquaresColors,
     knightMoves  
     } from "../Backend";
-
+    import {BoardJs} from "../BoardJS";
 function Square(props) {
-
+    const goodPossibleColor="green";
 
     const selectInitialSquare = (square) => {
+        //move the piece
+        if(goodPossibleColor==document.getElementById(square.arraySquare).style.backgroundColor){
+
+            //delete the piece from prev square
+            const squarer = localStorage.getItem("squareClicked");
+            const arrayPosDel = squarer.split('');
+            BoardJs[arrayPosDel[0]][arrayPosDel[1]].piece="";
+           
+            
+          
+            //move the piece
+            const pos = square.arraySquare.split('');
+            BoardJs[pos[0]][pos[1]].piece=localStorage.getItem("piece");
+            //console.log("after "+BoardJs[pos[0]][pos[1]])
+          
+            props.rerender(BoardJs);
+        }
+     
         //if clicked on a piece 
         if (square.piece !== '') {
             setSquaresColors();
-            //check if there is previous square selected to change background color to original
-            if (localStorage.getItem("squareClicked") !== null) {
-                const btn = document.getElementById(localStorage.getItem("squareClicked"));
-                btn.style.backgroundColor = localStorage.getItem("squareClickedColor");
-
-            }
+          
             //save clicked square and change background color red
             localStorage.setItem("squareClicked", square.arraySquare);
-            localStorage.setItem("squareClickedColor", square.squareColor);
+            localStorage.setItem("piece", square.piece);
+         
             const btn = document.getElementById(square.arraySquare);
             btn.style.backgroundColor = 'red';
 
@@ -45,7 +59,7 @@ function Square(props) {
                     const x = moves[0].toString();
                     const y = moves[1].toString();
                     const btn = document.getElementById(x+y);
-                    btn.style.backgroundColor = 'green'; 
+                    btn.style.backgroundColor = goodPossibleColor; 
                 }
 
             }else if(piece[1] === 'p' ){

@@ -104,7 +104,7 @@ export const BoardJs = [
       arraySquare: "16",
       squareColor: "grey",
       squarePosition: "g7",
-      piece: "bp", 
+      piece: "bp",
 
     },
     {
