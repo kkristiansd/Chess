@@ -3,7 +3,7 @@ import wBishop from '../../assets/whiteBishop.png'
 import bBishop from '../../assets/blackBishop.png'
 function Bishop(props) {
 
-    if(props.piece=="wb"){
+    if(props.piece==="wb"){
         return (
             <>
                         

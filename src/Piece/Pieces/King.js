@@ -3,7 +3,7 @@ import wKing from '../../assets/whiteKing.png'
 import bKing from '../../assets/blackKing.png'
 function King(props) {
 
-    if(props.piece=="wk"){
+    if(props.piece==="wk"){
         return (
             <>
                         

@@ -1,6 +1,5 @@
 import Square from "../Square/Square";
 import {BoardJs} from "../BoardJS";
-import { useState,useLayoutEffect } from "react";
 import React from "react";
 
 

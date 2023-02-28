@@ -1,15 +1,18 @@
 import React from 'react';
 import Piece from '../Piece/Piece';
+import { 
+    setSquaresColors,
+    knightMoves  
+    } from "../Backend";
 
-import { BoardJs } from "../BoardJS";
 function Square(props) {
 
 
     const selectInitialSquare = (square) => {
         //if clicked on a piece 
-        if (square.piece != '') {
+        if (square.piece !== '') {
             //check if there is previous square selected to change background color to original
-            if (localStorage.getItem("squareClicked") != null) {
+            if (localStorage.getItem("squareClicked") !== null) {
                 const btn = document.getElementById(localStorage.getItem("squareClicked"));
                 btn.style.backgroundColor = localStorage.getItem("squareClickedColor");
 
@@ -31,31 +34,31 @@ function Square(props) {
             //'wn' -> white night *knight
 
 
-            if (piece[1] == 'n') {
-                // Define the potential moves for the knight
-                const moves = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]
-                ];
-
-                const validKnightMoves = [];
-
-                // Calculate the new positions for each potential move
+            if (piece[1] === 'n') {
                 const position = square.arraySquare.split('');
-                for (let move of moves) {
-                    const newX = parseInt(position[0]) + move[0];
-                    const newY = parseInt(position[1]) + move[1];
-                    console.log(position[0]+"|||"+position[1])
-                    console.log(newX+"|"+newY)
-                    if (newX >= 0 && newX <= 7 && newY >= 0 && newY <= 7) {
-                        validKnightMoves.push([newX, newY]);
-                    }
+                //this will return an array of possible moves
+                const kMoves=knightMoves(position);
+           
+                for (let moves of kMoves) {
+                    const x = moves[0].toString();
+                    const y = moves[1].toString();
+                    const btn = document.getElementById(x+y);
+                    btn.style.backgroundColor = 'green';
+                 
+            
+                   
                 }
-                console.log(validKnightMoves);
+
+           
                 
 
-            }else if(piece[1] == 'p'){
+            }else if(piece[1] === 'p' ){
                     //put your stuff in  here
             }
+        }else{
+            setSquaresColors();
         }
+
 
 
 

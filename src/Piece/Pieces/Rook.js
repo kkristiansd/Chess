@@ -3,7 +3,7 @@ import wRook from '../../assets/whiteRook.png'
 import bRook from '../../assets/blackRook.png'
 function Rook(props) {
 
-    if(props.piece=="wr"){
+    if(props.piece==="wr"){
         return (
             <>
                         

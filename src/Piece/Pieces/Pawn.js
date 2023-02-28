@@ -3,7 +3,7 @@ import wPawn from '../../assets/whitePawn.png'
 import bPawn from '../../assets/blackPawn.png'
 function Pawn(props) {
    
-    if(props.piece=="wp"){
+    if(props.piece==="wp"){
         console.log("white pawns "+props.square.squarePosition)
         return (
             <>
