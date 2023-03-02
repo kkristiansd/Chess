@@ -3,7 +3,9 @@ import Piece from '../Piece/Piece';
 import { 
     setSquaresColors,
     knightMoves,
-    bishopMoves 
+    bishopMoves,
+    rookMoves,
+    queenMoves
     } from "../Backend";
     import {BoardJs} from "../BoardJS";
 function Square(props) {
@@ -12,20 +14,18 @@ function Square(props) {
     const selectInitialSquare = (square) => {
         //move the piece
         if(goodPossibleColor==document.getElementById(square.arraySquare).style.backgroundColor){
-
+          
             //delete the piece from prev square
             const squarer = localStorage.getItem("squareClicked");
             const arrayPosDel = squarer.split('');
             BoardJs[arrayPosDel[0]][arrayPosDel[1]].piece="";
-           
-            
-          
+
              //move the piece
             const pos = square.arraySquare.split('');
             BoardJs[pos[0]][pos[1]].piece=localStorage.getItem("piece");
-            //console.log("after "+BoardJs[pos[0]][pos[1]])
-          
+           
             props.rerender(BoardJs);
+            
         }
      
         //if clicked on a piece 
@@ -76,45 +76,35 @@ function Square(props) {
                     const btn = document.getElementById(x+y);
                     btn.style.backgroundColor = goodPossibleColor; 
                 }
+            }else if(piece[1] === 'r' ){
+                
+                //this will return an array of possible moves
+                const rMoves=rookMoves(position,piece[0]);
+           
+                //SHOW POSSIBLE MOVES IN GREEN
+                for (let moves of rMoves) {
+                    const x = moves[0].toString();
+                    const y = moves[1].toString();
+                    const btn = document.getElementById(x+y);
+                    btn.style.backgroundColor = goodPossibleColor; 
+                }
+            }else if(piece[1] === 'q' ){
+                
+                //this will return an array of possible moves
+                const rMoves=queenMoves(position,piece[0]);
+           
+                //SHOW POSSIBLE MOVES IN GREEN
+                for (let moves of rMoves) {
+                    const x = moves[0].toString();
+                    const y = moves[1].toString();
+                    const btn = document.getElementById(x+y);
+                    btn.style.backgroundColor = goodPossibleColor; 
+                }
             }
         }else{
             //if press on square with no pieces
             setSquaresColors();
         }
-
-
-
-
-
-
-
-
-        /*   const pos = square.arraySquare.split('');
-       
-        
-           if(BoardJs[pos[0]][pos[1]].piece===""&& localStorage.getItem("piece")!=null){
-               
-               const square = localStorage.getItem("squareId");
-               const btn = document.getElementById(square);
-               btn.style.backgroundColor=btn.className;
-   
-               const arrayPosDel = square.split('');
-               //console.log("bewfore "+BoardJs[arrayPosDel[0]][arrayPosDel[1]].piece)
-               BoardJs[arrayPosDel[0]][arrayPosDel[1]].piece="";
-   
-               BoardJs[pos[0]][pos[1]].piece=localStorage.getItem("piece");
-               //console.log("after "+BoardJs[pos[0]][pos[1]])
-               localStorage.setItem("piece",null)
-               localStorage.setItem("squareId", null);
-               props.rerender(BoardJs);
-           }else{
-              
-               //change back ground color
-               document.getElementById(square.arraySquare).style.backgroundColor="red";
-               //save the square in cache
-               localStorage.setItem("squareId", square.arraySquare);
-               localStorage.setItem("piece", square.piece);
-           }*/
     };
 
     return (

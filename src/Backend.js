@@ -134,6 +134,278 @@ export const bishopMoves = (position, pieceColor) => {
 }
 
 
+export const rookMoves = (position, pieceColor) => {
+    const validMoves = [];
+
+    // Calculate rook to top to rook
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0])-i;
+        const newY = parseInt(position[1]);
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+    // Calculate rook to donw to rook
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0])+i;
+        const newY = parseInt(position[1]);
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+     // Calculate rook to left to rook
+     for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]);
+        const newY = parseInt(position[1])-i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+     // Calculate rook to right to rook
+     for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]);
+        const newY = parseInt(position[1])+i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+
+    return validMoves;
+}
+
+
+export const queenMoves = (position, pieceColor) => {
+    const validMoves = [];
+
+    // Calculate  top to queen
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0])-i;
+        const newY = parseInt(position[1]);
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+    // Calculate  donw to queen
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0])+i;
+        const newY = parseInt(position[1]);
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+     // Calculate  left to queen
+     for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]);
+        const newY = parseInt(position[1])-i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+     // Calculate  right to queen
+     for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]);
+        const newY = parseInt(position[1])+i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+
+
+// Calculate queen to right bottom
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]) + i;
+        const newY = parseInt(position[1]) + i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        } else {
+            break;
+        }
+    }
+    // Calculate queen to left top
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]) - i;
+        const newY = parseInt(position[1]) - i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+        }else {
+            break;
+        }
+    }
+      // Calculate queen to left bottom
+      for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]) + i;
+        const newY = parseInt(position[1]) - i;
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        }else {
+            break;
+        }
+    }
+    // Calculate queen to right top
+    for (let i = 1; i <= 7; i++) {
+        const newX = parseInt(position[0]) - i;
+        const newY = parseInt(position[1]) + i; 
+        // Check if the new position is within the bounds of the board
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+                break;
+            }
+
+        }else {
+            break;
+        }
+    }
+
+    return validMoves;
+}
+
+
+
+
+
 
 
 
