@@ -1,5 +1,6 @@
 import React from 'react';
 import Piece from '../Piece/Piece';
+
 import { 
     setSquaresColors,
     knightMoves,
@@ -8,13 +9,17 @@ import {
     queenMoves
     } from "../Backend";
     import {BoardJs} from "../BoardJS";
-function Square(props) {
-    const goodPossibleColor="green";
 
+
+function Square(props) {
+
+    const goodPossibleColor="green";
+   
     const selectInitialSquare = (square) => {
+        
         //move the piece
-        if(goodPossibleColor==document.getElementById(square.arraySquare).style.backgroundColor){
-          
+        if(goodPossibleColor===document.getElementById(square.arraySquare).style.backgroundColor){
+           
             //delete the piece from prev square
             const squarer = localStorage.getItem("squareClicked");
             const arrayPosDel = squarer.split('');
@@ -110,6 +115,7 @@ function Square(props) {
     return (
         <div id={props.arraySquare} className={props.color} onClick={() => selectInitialSquare(props.square)} style={{ backgroundColor: props.color, width: 80, height: 80 }}>
             <Piece piece={props.piece} square={props.square} ></Piece>
+            
         </div>
     );
 
