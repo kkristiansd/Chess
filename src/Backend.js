@@ -254,6 +254,57 @@ export const pawnMoves = (position, pieceColor)=>{
     const newX = parseInt(position[0])-1;
     validMoves.push([newX, Y]);
   }
+     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    //==========================================================================================================
+    /*
+        this is what you are doing:
+                    ((position[1])-1).checkPiece == true
+        some BullShit
+
+        the 'checkPiece' function takes in 2 parameters (X,Y)
+
+        it is going to CHECK if there is any piece in does coordinates
+
+        if there IS a piece there:
+            returns the piece,  dosent care if the piece is white or black 
+        else:
+            returns false 
+
+
+        CORRECT WAY
+
+        X= current X position of clicked piece
+        Y= current Y position of clicked piece
+
+        checkPiece(X,Y)
+
+        this will return the piece in the position X,Y which is the peace you pressed on
+
+        HOW TO FIND ENIMIE PIECE??
+
+        PAWN can only take a piece if its on the other team 
+        AND 
+        if that piece it 1 UP and to the RIGHT or 1 UP and to the LEFT 
+        
+        so....
+
+        
+         checkPiece(X+1,Y+1)
+
+         PS.: you have to mess around with the plus sign depending on if the peace is black or white 
+         and if its taking to the right or left
+
+
+        SOLUTION FOR THE BLACK PAWN TO TAKE TOP RIGHT ON LAST LINE OF THIS PAGE
+
+        ONLY USE IT IN LAST CASE SCENARIO
+    */
+
+
+    //==========================================================================================================
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+ 
   //allow black pawn to take top right 
   if(pieceColor == 'b' /*&& ((position[1])-1).checkPiece == true*/){
         const newX = parseInt(position[0])+1;
@@ -467,5 +518,21 @@ export const queenMoves = (position, pieceColor) => {
 
 
 
+//IF YOU ARE READING THIS IT MEANS YOUR A BOT
 
+/*
+
+   //allow black pawn to take top right 
+    if (pieceColor == 'b' && checkPiece(X + 1, Y - 1) != false) {
+        const color = checkPiece(X + 1, Y - 1).piece;
+        //THIS IF WILL MAKE SURE THAT THE PIECE CANT EAT ITS ONW PIECES
+        if (color[0] !== pieceColor) {
+            const newX = parseInt(position[0]) + 1;
+            const newY = parseInt(position[1]) - 1;
+            validMoves.push([newX, newY]);
+        }
+
+    }
+
+ */
 
