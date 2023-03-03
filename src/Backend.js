@@ -9,6 +9,7 @@ export const setSquaresColors = () => {
         }
     }
 }
+
 const checkPiece = (x, y) => {
     if (BoardJs[x][y].piece != '') {
         return BoardJs[x][y];
@@ -224,6 +225,64 @@ export const rookMoves = (position, pieceColor) => {
 
     return validMoves;
 }
+
+export const pawnMoves = (position, pieceColor)=>{
+    const validMoves = [];
+
+    //Define the pawn position
+    const X = parseInt(position[0]);
+    const Y = parseInt(position[1]);
+    //Define pawns possible starting moves
+    if((X==6&&pieceColor=='w') || (X==1&&pieceColor=='b')  ){
+        if(pieceColor == 'b'){
+              const newX = parseInt(position[0])+2;
+              const newXX = parseInt(position[0])+1;
+                validMoves.push([newX, Y]);
+                validMoves.push([newXX, Y]);
+            
+        }else{
+            const newX = parseInt(position[0])-2;
+            const newXX = parseInt(position[0])-1;
+            validMoves.push([newX, Y]);
+            validMoves.push([newXX, Y]);
+        }     
+    }  
+     if(pieceColor == 'b'){
+        const newX = parseInt(position[0])+1;
+        validMoves.push([newX, Y]);   
+        }else{
+    const newX = parseInt(position[0])-1;
+    validMoves.push([newX, Y]);
+  }
+  //allow black pawn to take top right 
+  if(pieceColor == 'b' /*&& ((position[1])-1).checkPiece == true*/){
+        const newX = parseInt(position[0])+1;
+        const newY = parseInt(position[1])-1;
+        validMoves.push([newX, newY]);   
+    }
+//allow black pawn to take top left
+    if(pieceColor == 'b' /*&& ((position[1])-1).checkPiece == true*/){
+        const newX = parseInt(position[0])+1;
+        const newY = parseInt(position[1])+1;
+        validMoves.push([newX, newY]);   
+    }
+//allow white pawn to take top left 
+    if(pieceColor == 'w' /*&& ((position[1])-1).checkPiece == true*/){
+        const newX = parseInt(position[0])-1;
+        const newY = parseInt(position[1])-1;
+        validMoves.push([newX, newY]);   
+    }
+    //allow white pawn to take top right 
+    if(pieceColor == 'w' /*&& ((position[1])-1).checkPiece == true*/){
+        const newX = parseInt(position[0])-1;
+        const newY = parseInt(position[1])+1;
+        validMoves.push([newX, newY]);   
+    }
+
+    return validMoves;
+
+}
+
 
 
 export const queenMoves = (position, pieceColor) => {

@@ -6,7 +6,8 @@ import {
     knightMoves,
     bishopMoves,
     rookMoves,
-    queenMoves
+    queenMoves,
+    pawnMoves
     } from "../Backend";
     import {BoardJs} from "../BoardJS";
 
@@ -97,6 +98,18 @@ function Square(props) {
                 
                 //this will return an array of possible moves
                 const rMoves=queenMoves(position,piece[0]);
+           
+                //SHOW POSSIBLE MOVES IN GREEN
+                for (let moves of rMoves) {
+                    const x = moves[0].toString();
+                    const y = moves[1].toString();
+                    const btn = document.getElementById(x+y);
+                    btn.style.backgroundColor = goodPossibleColor; 
+                }
+            }else if(piece[1] === 'p' ){
+                
+                //this will return an array of possible moves
+                const rMoves=pawnMoves(position,piece[0]);
            
                 //SHOW POSSIBLE MOVES IN GREEN
                 for (let moves of rMoves) {
