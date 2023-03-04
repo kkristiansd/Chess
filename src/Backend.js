@@ -515,6 +515,132 @@ export const queenMoves = (position, pieceColor) => {
 
 
 
+export const kingMoves = (position, pieceColor) => {
+    console.log("heyy")
+    const validMoves = [];
+        let newX = parseInt(position[0])+1;
+        let newY = parseInt(position[1]);
+     
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+         
+            }
+        } 
+
+         newX = parseInt(position[0])-1;
+         newY = parseInt(position[1]);
+         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            const checkIfPiece = checkPiece(newX, newY);
+            if (checkIfPiece == false) {
+                validMoves.push([newX, newY]);
+            } else {
+                const color = checkIfPiece.piece;
+                if (color[0] !== pieceColor) {
+                    validMoves.push([newX, newY]);
+                }
+         
+            }
+        } 
+        newX = parseInt(position[0]);
+        newY = parseInt(position[1])-1;
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+           const checkIfPiece = checkPiece(newX, newY);
+           if (checkIfPiece == false) {
+               validMoves.push([newX, newY]);
+           } else {
+               const color = checkIfPiece.piece;
+               if (color[0] !== pieceColor) {
+                   validMoves.push([newX, newY]);
+               }
+        
+           }
+       } 
+       newX = parseInt(position[0]);
+       newY = parseInt(position[1])+1;
+       if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+          const checkIfPiece = checkPiece(newX, newY);
+          if (checkIfPiece == false) {
+              validMoves.push([newX, newY]);
+          } else {
+              const color = checkIfPiece.piece;
+              if (color[0] !== pieceColor) {
+                  validMoves.push([newX, newY]);
+              }
+       
+          }
+      } 
+
+      newX = parseInt(position[0])+1;
+      newY = parseInt(position[1])+1;
+      if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+         const checkIfPiece = checkPiece(newX, newY);
+         if (checkIfPiece == false) {
+             validMoves.push([newX, newY]);
+         } else {
+             const color = checkIfPiece.piece;
+             if (color[0] !== pieceColor) {
+                 validMoves.push([newX, newY]);
+             }
+      
+         }
+     } 
+     newX = parseInt(position[0])+1;
+     newY = parseInt(position[1])-1;
+     if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+     
+        }
+    } 
+    newX = parseInt(position[0])-1;
+    newY = parseInt(position[1])-1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+       const checkIfPiece = checkPiece(newX, newY);
+       if (checkIfPiece == false) {
+           validMoves.push([newX, newY]);
+       } else {
+           const color = checkIfPiece.piece;
+           if (color[0] !== pieceColor) {
+               validMoves.push([newX, newY]);
+           }
+    
+       }
+   } 
+   newX = parseInt(position[0])-1;
+   newY = parseInt(position[1])+1;
+   if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+      const checkIfPiece = checkPiece(newX, newY);
+      if (checkIfPiece == false) {
+          validMoves.push([newX, newY]);
+      } else {
+          const color = checkIfPiece.piece;
+          if (color[0] !== pieceColor) {
+              validMoves.push([newX, newY]);
+          }
+   
+      }
+  } 
+    
+    return validMoves;
+}
+
+
+
+
+
 
 
 
