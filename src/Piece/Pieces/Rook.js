@@ -7,14 +7,14 @@ function Rook(props) {
         return (
             <>
                         
-            <img src={wRook} alt="white Rook" width={70} height={70} style={{marginLeft:5,marginTop:4}} />
+            <img src={wRook} alt="white Rook" width={65} height={65} style={{marginLeft:5,marginTop:4}} />
             </>
           ) 
     }else{
         return (
             <>
                         
-            <img src={bRook} alt="black Rook" width={70} height={70} style={{marginLeft:5,marginTop:4}} />
+            <img src={bRook} alt="black Rook" width={65} height={65} style={{marginLeft:5,marginTop:4}} />
             </>
           )
     }

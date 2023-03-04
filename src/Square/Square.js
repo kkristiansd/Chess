@@ -18,7 +18,7 @@ function Square(props) {
     const goodPossibleColor="green";
    
     const selectInitialSquare = (square) => {
-        
+        let moved =false;
         //move the piece
         if(goodPossibleColor===document.getElementById(square.arraySquare).style.backgroundColor){
            
@@ -32,17 +32,18 @@ function Square(props) {
             BoardJs[pos[0]][pos[1]].piece=localStorage.getItem("piece");
            
             props.rerender(BoardJs);
+            moved=true;
             
         }
      
         //if clicked on a piece 
-        if (square.piece !== '') {
+        if (square.piece !== '' && moved==false) {
             setSquaresColors();
           
             //save clicked square and change background color red
             localStorage.setItem("squareClicked", square.arraySquare);
             localStorage.setItem("piece", square.piece);
-         
+            
             const btn = document.getElementById(square.arraySquare);
             btn.style.backgroundColor = 'red';
 
@@ -118,6 +119,7 @@ function Square(props) {
                     const y = moves[1].toString();
                     const btn = document.getElementById(x+y);
                     btn.style.backgroundColor = goodPossibleColor; 
+                    
                 }
             }else if(piece[1] === 'k' ){
                 
@@ -132,6 +134,7 @@ function Square(props) {
                     btn.style.backgroundColor = goodPossibleColor; 
                 }
             }
+            moved =false;
         }else{
             //if press on square with no pieces
             setSquaresColors();
