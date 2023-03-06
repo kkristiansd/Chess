@@ -1,3 +1,5 @@
+//make move counter for each piece
+// for stats and for castles
 export const BoardJs = [
   [
     {
