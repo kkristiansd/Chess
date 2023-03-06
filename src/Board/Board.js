@@ -12,7 +12,7 @@ function Board() {
   const [whiteToMove, setWhiteToMove] = useState(true);
 
 
-  const changeMove =(value)=>setWhiteToMove(value);
+  const changeMove =()=>setWhiteToMove(!whiteToMove);
   
   return (
     <>

@@ -31,13 +31,16 @@ function Square(props) {
             const pos = square.arraySquare.split('');
             BoardJs[pos[0]][pos[1]].piece = localStorage.getItem("piece");
 
+            props.changeMove();
             props.rerender(BoardJs);
             moved = true;
 
+
         }
 
-        //if clicked on a piece
+    
         if (props.move) {
+                //if clicked on a piece
             if (square.piece !== '' && moved == false && props.pieceColor=='w') {
                 setSquaresColors();
 
@@ -136,7 +139,7 @@ function Square(props) {
                     }
                 }
                 moved = false;
-                props.changeMove(false);
+                
               
             } else {
                 //if press on square with no pieces
@@ -241,7 +244,7 @@ function Square(props) {
                     }
                 }
                 moved = false;
-                props.changeMove(true);
+                //props.changeMove(true);
             } else {
                 //if press on square with no pieces
                 setSquaresColors();
