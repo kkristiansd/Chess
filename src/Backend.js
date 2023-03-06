@@ -1,4 +1,6 @@
-import { BoardJs } from "./BoardJS";
+import {
+    BoardJs
+} from "./BoardJS";
 
 //set square color to original
 export const setSquaresColors = () => {
@@ -22,7 +24,14 @@ const checkPiece = (x, y) => {
 export const knightMoves = (position, pieceColor) => {
     // Define the potential moves for the knight
     const moves = [
-        [-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]
+        [-2, -1],
+        [-2, 1],
+        [-1, -2],
+        [-1, 2],
+        [1, -2],
+        [1, 2],
+        [2, -1],
+        [2, 1]
     ];
 
     const validKnightMoves = [];
@@ -84,12 +93,12 @@ export const bishopMoves = (position, pieceColor) => {
                 }
                 break;
             }
-        }else {
+        } else {
             break;
         }
     }
-      // Calculate bishop to left bottom
-      for (let i = 1; i <= 7; i++) {
+    // Calculate bishop to left bottom
+    for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]) + i;
         const newY = parseInt(position[1]) - i;
         // Check if the new position is within the bounds of the board
@@ -105,14 +114,14 @@ export const bishopMoves = (position, pieceColor) => {
                 break;
             }
 
-        }else {
+        } else {
             break;
         }
     }
     // Calculate bishop to right top
     for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]) - i;
-        const newY = parseInt(position[1]) + i; 
+        const newY = parseInt(position[1]) + i;
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
             const checkIfPiece = checkPiece(newX, newY);
@@ -126,7 +135,7 @@ export const bishopMoves = (position, pieceColor) => {
                 break;
             }
 
-        }else {
+        } else {
             break;
         }
     }
@@ -140,7 +149,7 @@ export const rookMoves = (position, pieceColor) => {
 
     // Calculate rook to top to rook
     for (let i = 1; i <= 7; i++) {
-        const newX = parseInt(position[0])-i;
+        const newX = parseInt(position[0]) - i;
         const newY = parseInt(position[1]);
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
@@ -161,7 +170,7 @@ export const rookMoves = (position, pieceColor) => {
     }
     // Calculate rook to donw to rook
     for (let i = 1; i <= 7; i++) {
-        const newX = parseInt(position[0])+i;
+        const newX = parseInt(position[0]) + i;
         const newY = parseInt(position[1]);
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
@@ -180,10 +189,10 @@ export const rookMoves = (position, pieceColor) => {
             break;
         }
     }
-     // Calculate rook to left to rook
-     for (let i = 1; i <= 7; i++) {
+    // Calculate rook to left to rook
+    for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]);
-        const newY = parseInt(position[1])-i;
+        const newY = parseInt(position[1]) - i;
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
             const checkIfPiece = checkPiece(newX, newY);
@@ -201,10 +210,10 @@ export const rookMoves = (position, pieceColor) => {
             break;
         }
     }
-     // Calculate rook to right to rook
-     for (let i = 1; i <= 7; i++) {
+    // Calculate rook to right to rook
+    for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]);
-        const newY = parseInt(position[1])+i;
+        const newY = parseInt(position[1]) + i;
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
             const checkIfPiece = checkPiece(newX, newY);
@@ -226,35 +235,39 @@ export const rookMoves = (position, pieceColor) => {
     return validMoves;
 }
 
-export const pawnMoves = (position, pieceColor)=>{
+export const pawnMoves = (position, pieceColor) => {
     const validMoves = [];
 
     //Define the pawn position
     const X = parseInt(position[0]);
     const Y = parseInt(position[1]);
     //Define pawns possible starting moves
-    if((X==6&&pieceColor=='w') || (X==1&&pieceColor=='b')  ){
-        if(pieceColor == 'b'){
-              const newX = parseInt(position[0])+2;
-              const newXX = parseInt(position[0])+1;
-                validMoves.push([newX, Y]);
-                validMoves.push([newXX, Y]);
-            
-        }else{
-            const newX = parseInt(position[0])-2;
-            const newXX = parseInt(position[0])-1;
+    if ((X == 6 && pieceColor == 'w') || (X == 1 && pieceColor == 'b')) {
+        if (pieceColor == 'b') {
+            //check if there is np other pieces 
+            const newX = parseInt(position[0]) + 2;
+            const newXX = parseInt(position[0]) + 1;
             validMoves.push([newX, Y]);
             validMoves.push([newXX, Y]);
-        }     
-    }  
-     if(pieceColor == 'b'){
-        const newX = parseInt(position[0])+1;
-        validMoves.push([newX, Y]);   
-        }else{
-    const newX = parseInt(position[0])-1;
-    validMoves.push([newX, Y]);
-  }
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+        } else {
+             //check if there is np other pieces 
+            const newX = parseInt(position[0]) - 2;
+            const newXX = parseInt(position[0]) - 1;
+            validMoves.push([newX, Y]);
+            validMoves.push([newXX, Y]);
+        }
+    }
+    if (pieceColor == 'b') {
+         //check if there is np other pieces 
+        const newX = parseInt(position[0]) + 1;
+        validMoves.push([newX, Y]);
+    } else {
+         //check if there is np other pieces 
+        const newX = parseInt(position[0]) - 1;
+        validMoves.push([newX, Y]);
+    }
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     //==========================================================================================================
     /*
         this is what you are doing:
@@ -304,30 +317,42 @@ export const pawnMoves = (position, pieceColor)=>{
     //==========================================================================================================
     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
- 
-  //allow black pawn to take top right 
-  if(pieceColor == 'b' /*&& ((position[1])-1).checkPiece == true*/){
-        const newX = parseInt(position[0])+1;
-        const newY = parseInt(position[1])-1;
-        validMoves.push([newX, newY]);   
+
+    //allow black pawn to take top right 
+    if (pieceColor == 'b' && checkPiece(X + 1, Y - 1) != false) {
+        if (checkPiece(X + 1, Y - 1).piece[0] == 'w') {
+            const newX = parseInt(position[0]) + 1;
+            const newY = parseInt(position[1]) - 1;
+            validMoves.push([newX, newY]);
+        }
+
     }
-//allow black pawn to take top left
-    if(pieceColor == 'b' /*&& ((position[1])-1).checkPiece == true*/){
-        const newX = parseInt(position[0])+1;
-        const newY = parseInt(position[1])+1;
-        validMoves.push([newX, newY]);   
+    //allow black pawn to take top left
+    if (pieceColor == 'b' && checkPiece(X + 1, Y + 1) != false) {
+        if (checkPiece(X + 1, Y + 1).piece[0] == 'w') {
+            const newX = parseInt(position[0]) + 1;
+            const newY = parseInt(position[1]) + 1;
+            validMoves.push([newX, newY]);
+        }
+
     }
-//allow white pawn to take top left 
-    if(pieceColor == 'w' /*&& ((position[1])-1).checkPiece == true*/){
-        const newX = parseInt(position[0])-1;
-        const newY = parseInt(position[1])-1;
-        validMoves.push([newX, newY]);   
-    }
+    //allow white pawn to take top left 
+    if (pieceColor == 'w' && checkPiece(X - 1, Y - 1) != false) {
+        if (checkPiece(X - 1, Y - 1).piece[0] == 'b') {
+            const newX = parseInt(position[0]) - 1;
+            const newY = parseInt(position[1]) - 1;
+            validMoves.push([newX, newY]);
+    
+        }
+            }
     //allow white pawn to take top right 
-    if(pieceColor == 'w' /*&& ((position[1])-1).checkPiece == true*/){
-        const newX = parseInt(position[0])-1;
-        const newY = parseInt(position[1])+1;
-        validMoves.push([newX, newY]);   
+    if (pieceColor == 'w' && checkPiece(X - 1, Y + 1) != false) {
+        if (checkPiece(X - 1, Y + 1).piece[0] == 'b') {
+            const newX = parseInt(position[0]) - 1;
+            const newY = parseInt(position[1]) + 1;
+            validMoves.push([newX, newY]);
+        }
+        
     }
 
     return validMoves;
@@ -341,7 +366,7 @@ export const queenMoves = (position, pieceColor) => {
 
     // Calculate  top to queen
     for (let i = 1; i <= 7; i++) {
-        const newX = parseInt(position[0])-i;
+        const newX = parseInt(position[0]) - i;
         const newY = parseInt(position[1]);
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
@@ -362,7 +387,7 @@ export const queenMoves = (position, pieceColor) => {
     }
     // Calculate  donw to queen
     for (let i = 1; i <= 7; i++) {
-        const newX = parseInt(position[0])+i;
+        const newX = parseInt(position[0]) + i;
         const newY = parseInt(position[1]);
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
@@ -381,10 +406,10 @@ export const queenMoves = (position, pieceColor) => {
             break;
         }
     }
-     // Calculate  left to queen
-     for (let i = 1; i <= 7; i++) {
+    // Calculate  left to queen
+    for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]);
-        const newY = parseInt(position[1])-i;
+        const newY = parseInt(position[1]) - i;
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
             const checkIfPiece = checkPiece(newX, newY);
@@ -402,10 +427,10 @@ export const queenMoves = (position, pieceColor) => {
             break;
         }
     }
-     // Calculate  right to queen
-     for (let i = 1; i <= 7; i++) {
+    // Calculate  right to queen
+    for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]);
-        const newY = parseInt(position[1])+i;
+        const newY = parseInt(position[1]) + i;
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
             const checkIfPiece = checkPiece(newX, newY);
@@ -425,7 +450,7 @@ export const queenMoves = (position, pieceColor) => {
     }
 
 
-// Calculate queen to right bottom
+    // Calculate queen to right bottom
     for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]) + i;
         const newY = parseInt(position[1]) + i;
@@ -462,12 +487,12 @@ export const queenMoves = (position, pieceColor) => {
                 }
                 break;
             }
-        }else {
+        } else {
             break;
         }
     }
-      // Calculate queen to left bottom
-      for (let i = 1; i <= 7; i++) {
+    // Calculate queen to left bottom
+    for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]) + i;
         const newY = parseInt(position[1]) - i;
         // Check if the new position is within the bounds of the board
@@ -483,14 +508,14 @@ export const queenMoves = (position, pieceColor) => {
                 break;
             }
 
-        }else {
+        } else {
             break;
         }
     }
     // Calculate queen to right top
     for (let i = 1; i <= 7; i++) {
         const newX = parseInt(position[0]) - i;
-        const newY = parseInt(position[1]) + i; 
+        const newY = parseInt(position[1]) + i;
         // Check if the new position is within the bounds of the board
         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
             const checkIfPiece = checkPiece(newX, newY);
@@ -504,7 +529,7 @@ export const queenMoves = (position, pieceColor) => {
                 break;
             }
 
-        }else {
+        } else {
             break;
         }
     }
@@ -518,82 +543,10 @@ export const queenMoves = (position, pieceColor) => {
 export const kingMoves = (position, pieceColor) => {
     console.log("heyy")
     const validMoves = [];
-        let newX = parseInt(position[0])+1;
-        let newY = parseInt(position[1]);
-     
-        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-            const checkIfPiece = checkPiece(newX, newY);
-            if (checkIfPiece == false) {
-                validMoves.push([newX, newY]);
-            } else {
-                const color = checkIfPiece.piece;
-                if (color[0] !== pieceColor) {
-                    validMoves.push([newX, newY]);
-                }
-         
-            }
-        } 
+    let newX = parseInt(position[0]) + 1;
+    let newY = parseInt(position[1]);
 
-         newX = parseInt(position[0])-1;
-         newY = parseInt(position[1]);
-         if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-            const checkIfPiece = checkPiece(newX, newY);
-            if (checkIfPiece == false) {
-                validMoves.push([newX, newY]);
-            } else {
-                const color = checkIfPiece.piece;
-                if (color[0] !== pieceColor) {
-                    validMoves.push([newX, newY]);
-                }
-         
-            }
-        } 
-        newX = parseInt(position[0]);
-        newY = parseInt(position[1])-1;
-        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-           const checkIfPiece = checkPiece(newX, newY);
-           if (checkIfPiece == false) {
-               validMoves.push([newX, newY]);
-           } else {
-               const color = checkIfPiece.piece;
-               if (color[0] !== pieceColor) {
-                   validMoves.push([newX, newY]);
-               }
-        
-           }
-       } 
-       newX = parseInt(position[0]);
-       newY = parseInt(position[1])+1;
-       if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-          const checkIfPiece = checkPiece(newX, newY);
-          if (checkIfPiece == false) {
-              validMoves.push([newX, newY]);
-          } else {
-              const color = checkIfPiece.piece;
-              if (color[0] !== pieceColor) {
-                  validMoves.push([newX, newY]);
-              }
-       
-          }
-      } 
-
-      newX = parseInt(position[0])+1;
-      newY = parseInt(position[1])+1;
-      if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-         const checkIfPiece = checkPiece(newX, newY);
-         if (checkIfPiece == false) {
-             validMoves.push([newX, newY]);
-         } else {
-             const color = checkIfPiece.piece;
-             if (color[0] !== pieceColor) {
-                 validMoves.push([newX, newY]);
-             }
-      
-         }
-     } 
-     newX = parseInt(position[0])+1;
-     newY = parseInt(position[1])-1;
-     if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
         const checkIfPiece = checkPiece(newX, newY);
         if (checkIfPiece == false) {
             validMoves.push([newX, newY]);
@@ -602,38 +555,110 @@ export const kingMoves = (position, pieceColor) => {
             if (color[0] !== pieceColor) {
                 validMoves.push([newX, newY]);
             }
-     
+
         }
-    } 
-    newX = parseInt(position[0])-1;
-    newY = parseInt(position[1])-1;
+    }
+
+    newX = parseInt(position[0]) - 1;
+    newY = parseInt(position[1]);
     if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-       const checkIfPiece = checkPiece(newX, newY);
-       if (checkIfPiece == false) {
-           validMoves.push([newX, newY]);
-       } else {
-           const color = checkIfPiece.piece;
-           if (color[0] !== pieceColor) {
-               validMoves.push([newX, newY]);
-           }
-    
-       }
-   } 
-   newX = parseInt(position[0])-1;
-   newY = parseInt(position[1])+1;
-   if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-      const checkIfPiece = checkPiece(newX, newY);
-      if (checkIfPiece == false) {
-          validMoves.push([newX, newY]);
-      } else {
-          const color = checkIfPiece.piece;
-          if (color[0] !== pieceColor) {
-              validMoves.push([newX, newY]);
-          }
-   
-      }
-  } 
-    
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+    newX = parseInt(position[0]);
+    newY = parseInt(position[1]) - 1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+    newX = parseInt(position[0]);
+    newY = parseInt(position[1]) + 1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+
+    newX = parseInt(position[0]) + 1;
+    newY = parseInt(position[1]) + 1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+    newX = parseInt(position[0]) + 1;
+    newY = parseInt(position[1]) - 1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+    newX = parseInt(position[0]) - 1;
+    newY = parseInt(position[1]) - 1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+    newX = parseInt(position[0]) - 1;
+    newY = parseInt(position[1]) + 1;
+    if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+        const checkIfPiece = checkPiece(newX, newY);
+        if (checkIfPiece == false) {
+            validMoves.push([newX, newY]);
+        } else {
+            const color = checkIfPiece.piece;
+            if (color[0] !== pieceColor) {
+                validMoves.push([newX, newY]);
+            }
+
+        }
+    }
+
     return validMoves;
 }
 
@@ -661,4 +686,3 @@ export const kingMoves = (position, pieceColor) => {
     }
 
  */
-
