@@ -1,6 +1,6 @@
 import React from 'react'
-import wKing from '../../assets/jack.png'
-import bKing from '../../assets/kris.png'
+import wKing from '../../assets/whiteKing.png'
+import bKing from '../../assets/blackKing.png'
 function King(props) {
 
     if(props.piece==="wk"){
