@@ -3,7 +3,7 @@
 
 
 # Chess Game (In Progress)
-**This is a chess game built using React and Tailwind CSS, with no external libraries.**
+**This is a chess game built using React and Tailwind CSS, with no external chess libraries.**
 
 ## Getting Started ##
 
