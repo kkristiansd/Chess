@@ -6,15 +6,13 @@
 **This is a chess game built using React and Tailwind CSS, with no external libraries.**
 
 ## Getting Started ##
+
 To run the game locally, clone this repository and navigate to the project directory in your terminal. Then, install the dependencies by running:
 
-### Copy code ###
 `npm install`
 
 Once the dependencies are installed, you can start the local development server by running:
 
-
-### Copy code ###
 `npm start`
 
 This will open the game in your default web browser at http://localhost:3000/.
