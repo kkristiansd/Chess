@@ -24,4 +24,6 @@ The game can be played by two players on the same computer. To move a piece, cli
 * Fully playable chess game with no external libraries
 * Displays available moves for each piece when clicked on
 
+- - - -
+
 ![image](https://github.com/kokas340/chess/blob/main/src/assets/chess.png)
