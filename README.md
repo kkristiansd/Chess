@@ -26,3 +26,8 @@ The game can be played by two players on the same computer. To move a piece, cli
 
 - - - -
 ![image](https://github.com/kokas340/chess/blob/main/src/assets/chess.png)
+
+## Authors
+
+- [@kkristiansd](https://github.com/kkristiansd)
+- [@kokas340](https://github.com/kokas340)
