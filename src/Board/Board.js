@@ -15,14 +15,12 @@ function Board() {
   const changeMove =()=>setWhiteToMove(!whiteToMove);
   
   return (
-    <>
+    <div>
     {BoardJs.map((row, index) => {
-console.log("view")
       return (
         <div className="row" key={row[0].arraySquare} >
           {row.map((square, sIndex) => {
-            const pColor = square.piece
-           
+            const pColor = square.piece;
             const pieceColor = pColor.split("");
             return (
               <>
@@ -36,7 +34,7 @@ console.log("view")
       );
     })}
     
-    </>
+    </div>
     
   );
  
