@@ -5,24 +5,18 @@ import Queen from './Pieces/Queen';
 import Rook from './Pieces/Rook';
 import Bishop from './Pieces/Bishop';
 import Night from './Pieces/Night';
+
 class Piece extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            piece: 'p',
-            color: 'white',
-        }
-        this.handleEvent = this.handleEvent.bind(this);
-    }
-    handleEvent() {
-        console.log(this.state);
+      
     }
     render() {
         if(this.props.piece ==='wp'){
             return (
                 <>
                 
-              <Pawn square={this.props.square} piece={this.props.piece} />
+              <Pawn  boardFlip={this.props.boardFlip} square={this.props.square} piece={this.props.piece} />
                 </>
             );
         }
@@ -30,7 +24,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Pawn square={this.props.square} piece={this.props.piece} />
+                <Pawn boardFlip={this.props.boardFlip} square={this.props.square} piece={this.props.piece} />
                 </>
             );
         }
@@ -38,7 +32,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <King piece={this.props.piece} />
+                <King piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }
@@ -46,7 +40,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <King piece={this.props.piece} />
+                <King piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }
@@ -54,7 +48,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Queen piece={this.props.piece} />
+                <Queen piece={this.props.piece} boardFlip={this.props.boardFlip} />
                 </>
             );
         }
@@ -62,7 +56,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Queen piece={this.props.piece} />
+                <Queen piece={this.props.piece} boardFlip={this.props.boardFlip} />
                 </>
             );
         }
@@ -70,7 +64,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Night piece={this.props.piece} />
+                <Night piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }
@@ -78,7 +72,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Night piece={this.props.piece} />
+                <Night piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }
@@ -86,7 +80,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Bishop piece={this.props.piece} />
+                <Bishop piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }
@@ -94,7 +88,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Bishop piece={this.props.piece} />
+                <Bishop piece={this.props.piece} boardFlip={this.props.boardFlip} />
                 </>
             );
         }
@@ -102,7 +96,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Rook piece={this.props.piece} />
+                <Rook piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }
@@ -110,7 +104,7 @@ class Piece extends Component {
             return (
                 <>
                 
-                <Rook piece={this.props.piece} />
+                <Rook piece={this.props.piece} boardFlip={this.props.boardFlip}/>
                 </>
             );
         }

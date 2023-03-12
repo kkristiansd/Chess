@@ -255,7 +255,7 @@ function Square(props) {
 
     return (
         <div id={props.arraySquare} className={props.color} onClick={() => selectInitialSquare(props.square)} style={{ backgroundColor: props.color, width: 80, height: 80 }}>
-            <Piece piece={props.piece} square={props.square} ></Piece>
+            <Piece piece={props.piece} square={props.square}  boardFlip={props.boardFlip} ></Piece>
 
         </div>
     );

@@ -1,0 +1,3 @@
+.boardFlipped{
+    transform: rotate(180deg);
+}
