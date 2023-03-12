@@ -20,10 +20,6 @@ This will open the game in your default web browser at http://localhost:3000/.
 ## How to Play ##
 The game can be played by two players on the same computer. To move a piece, click on the piece you want to move and then click on the square you want to move it to. If the move is valid, the piece will move to the new square. If the move is not valid, the piece will stay in its current position.
 
-## Features ##
-* Fully playable chess game with no external libraries
-* Displays available moves for each piece when clicked on
-
 - - - -
 ![image](https://github.com/kokas340/chess/blob/main/src/assets/chess.png)
 
