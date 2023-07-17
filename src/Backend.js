@@ -13,13 +13,13 @@ export const setSquaresColors = () => {
 }
 
 const checkPiece = (x, y) => {
-    if (BoardJs[x][y].piece != '') {
+    if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+      if (BoardJs[x][y].piece !== '') {
         return BoardJs[x][y];
-    } else {
-        return false;
+      }
     }
-}
-
+    return false;
+  };
 const checkDiagonalMoves = (position, pieceColor, validMoves, direction) => {
     let newX = 0;
     let newY = 0;
@@ -175,106 +175,141 @@ export const queenMoves = (position, pieceColor) => {
     checkDiagonalMoves(position, pieceColor, validMoves, "lb");
     return validMoves;
 }
-
 export const pawnMoves = (position, pieceColor) => {
     const validMoves = [];
-
-    //Define the pawn position
     const X = parseInt(position[0]);
     const Y = parseInt(position[1]);
-
-    //Define pawns possible starting moves
-
-    if ((X == 6 && pieceColor == 'w') || (X == 1 && pieceColor == 'b')) {
-        
-        if (pieceColor == 'b') {
-
-            //check if there is np other pieces 
-            const newX = parseInt(position[0]) + 2;
-            const newXX = parseInt(position[0]) + 1;
-            validMoves.push([newX, Y]);
-            validMoves.push([newXX, Y]);
-
-        } else {
-
-            //check if there is np other pieces 
-            const newX = parseInt(position[0]) - 2;
-            const newXX = parseInt(position[0]) - 1;
-            validMoves.push([newX, Y]);
-            validMoves.push([newXX, Y]);
-
+  
+    if ((X === 6 && pieceColor === "w") || (X === 1 && pieceColor === "b")) {
+      if (pieceColor === "b") {
+        const newX = X + 2;
+        const newXX = X + 1;
+        if (!checkPiece(newX, Y) && !checkPiece(newXX, Y)) {
+          validMoves.push([newX, Y]);
+          validMoves.push([newXX, Y]);
         }
-    }
-    if (pieceColor == 'b') {
-
-        //check if there is np other pieces 
-        const newX = parseInt(position[0]) + 1;
-        validMoves.push([newX, Y]);
-
+      } else {
+        const newX = X - 2;
+        const newXX = X - 1;
+        if (!checkPiece(newX, Y) && !checkPiece(newXX, Y)) {
+          validMoves.push([newX, Y]);
+          validMoves.push([newXX, Y]);
+        }
+      }
     } else {
-
-        //check if there is np other pieces 
-        const newX = parseInt(position[0]) - 1;
-        validMoves.push([newX, Y]);
-
-    }
-
-    //allow black pawn to take top right 
-
-    if (pieceColor == 'b' && checkPiece(X + 1, Y - 1) != false) {
-
-        if (checkPiece(X + 1, Y - 1).piece[0] == 'w') {
-            const newX = parseInt(position[0]) + 1;
-            const newY = parseInt(position[1]) - 1;
-
-            validMoves.push([newX, newY]);
+      if (pieceColor === "b") {
+        const newX = X + 1;
+        if (!checkPiece(newX, Y) && !checkPiece(newX, Y)) {
+          validMoves.push([newX, Y]);
         }
-
-    }
-
-    //allow black pawn to take top left
-    if (pieceColor == 'b' && checkPiece(X + 1, Y + 1) != false) {
-        if (checkPiece(X + 1, Y + 1).piece[0] == 'w') {
-            const newX = parseInt(position[0]) + 1;
-            const newY = parseInt(position[1]) + 1;
-            validMoves.push([newX, newY]);
+      } else {
+        const newX = X - 1;
+        if (!checkPiece(newX, Y) && !checkPiece(newX, Y)) {
+          validMoves.push([newX, Y]);
         }
-
+      }
     }
-
-    //allow white pawn to take top left 
-
-    if (pieceColor == 'w' && checkPiece(X - 1, Y - 1) != false) {
-
-        if (checkPiece(X - 1, Y - 1).piece[0] == 'b') {
-
-            const newX = parseInt(position[0]) - 1;
-            const newY = parseInt(position[1]) - 1;
-            validMoves.push([newX, newY]);
-
-        }
-
+  
+    if (pieceColor === "b" && checkPiece(X + 1, Y - 1)) {
+      if (checkPiece(X + 1, Y - 1).piece[0] === "w") {
+        const newX = X + 1;
+        const newY = Y - 1;
+        validMoves.push([newX, newY]);
+      }
     }
-
-    //allow white pawn to take top right 
-    if (pieceColor == 'w' && checkPiece(X - 1, Y + 1) != false) {
-
-        if (checkPiece(X - 1, Y + 1).piece[0] == 'b') {
-
-            const newX = parseInt(position[0]) - 1;
-            const newY = parseInt(position[1]) + 1;
-            validMoves.push([newX, newY]);
-
-        }
-
-
+  
+    if (pieceColor === "b" && checkPiece(X + 1, Y + 1)) {
+      if (checkPiece(X + 1, Y + 1).piece[0] === "w") {
+        const newX = X + 1;
+        const newY = Y + 1;
+        validMoves.push([newX, newY]);
+      }
     }
-
+  
+    if (pieceColor === "w" && checkPiece(X - 1, Y - 1)) {
+      if (checkPiece(X - 1, Y - 1).piece[0] === "b") {
+        const newX = X - 1;
+        const newY = Y - 1;
+        validMoves.push([newX, newY]);
+      }
+    }
+  
+    if (pieceColor === "w" && checkPiece(X - 1, Y + 1)) {
+      if (checkPiece(X - 1, Y + 1).piece[0] === "b") {
+        const newX = X - 1;
+        const newY = Y + 1;
+        validMoves.push([newX, newY]);
+      }
+    }
+  
     return validMoves;
-}
+  };
+  
+  const getValidMoves = (piece, position, pieceColor) => {
+    let validMoves = [];
+  
+    switch (piece[1]) {
+      case "n": // Knight
+        validMoves = knightMoves(position, pieceColor);
+        break;
+      case "b": // Bishop
+        validMoves = bishopMoves(position, pieceColor);
+        break;
+      case "r": // Rook
+        validMoves = rookMoves(position, pieceColor);
+        break;
+      case "q": // Queen
+        validMoves = queenMoves(position, pieceColor);
+        break;
+      case "p": // Pawn
+        validMoves = pawnMoves(position, pieceColor);
+        break;
+      case "k": // King
+        validMoves = kingMoves(position, pieceColor);
+        break;
+      default:
+        console.log("Invalid piece type");
+    }
+  
+    return validMoves;
+  };
+  //checks
+  export const getKingPosition = (color) => {
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = BoardJs[row][col];
+        if (square.piece === color + "k") {
+            console.log(row  + "/"+col) 
+          return [row, col];
+        }
+      }
+    }
+    return null; // Return null if the king's position is not found
+  };
 
-
-
+  export const isKingUnderAttack = (kingPosition, kingColor) => {
+    const opponentColor = kingColor === 'w' ? 'b' : 'w';
+    
+    // Check if any opponent piece can attack the king
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+        const piece = BoardJs[i][j].piece;
+        if (piece) {
+          const pieceColor = piece[0];
+          if (pieceColor === opponentColor) {
+            const validMoves = getValidMoves(piece, [i, j], pieceColor);
+            for (let move of validMoves) {
+              if (move[0] === kingPosition[0] && move[1] === kingPosition[1]) {
+                return true;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    return false;
+  };
 
 
 

@@ -2,7 +2,7 @@ import Square from "../Square/Square";
 import {BoardJs} from "../BoardJS";
 import React, { useState, useEffect } from 'react';
 import './Board.css';
-import audio from '../assets/sounds/moan.mp3';
+import audio from '../assets/sounds/move-self.mp3';
 
 function Board() {
   //re-render after each move
